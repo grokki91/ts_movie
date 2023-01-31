@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-  entry: './src/Movie.ts',
+  entry: './src/index.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [
@@ -28,6 +28,6 @@ module.exports = {
   },
   plugins: [new HtmlWebpackPlugin()],
   resolve: {
-    extension: ['.tsx', '.ts', '.js']
+    extensions: ['.ts', '.js'],
   }
 }

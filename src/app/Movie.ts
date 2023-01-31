@@ -1,7 +1,7 @@
 import MovieData from "./MovieData";
 
 export default class Movie implements MovieData {
-  constructor (
+  constructor(
     readonly id: number,
     readonly title: string,
     readonly year: number,
@@ -9,5 +9,7 @@ export default class Movie implements MovieData {
     readonly slogan: string,
     readonly genre: string[],
     readonly time: number,
+    readonly price: number,
+    readonly discount?: number
   ){}
 }
