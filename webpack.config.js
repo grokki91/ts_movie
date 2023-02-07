@@ -6,20 +6,8 @@ module.exports = {
   devtool: 'inline-source-map',
   module: {
     rules: [
-      {
-        test: /\.tsx?$/,
-        include: /node_modules/,
-        use: {
-          loader: 'ts-loader'
-        }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      }
+      { test: /\.([cm]?ts|tsx)$/, loader: 'ts-loader' },
+      { test: /\.js$/, loader: 'babel-loader' }
     ]
   },
   output: {

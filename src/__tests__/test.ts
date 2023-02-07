@@ -24,11 +24,21 @@ describe('Check class Movie', () => {
   })
 
   test(('Check total with discount'), () => {
+    const newCinema = new Movie(15, 'Аватар', 2009, 'США', 'Wow', ['фантастика', 'боевик', 'фэнтези'], 137, 2000, 10);
+    const newCinema2 = new Movie(10, 'Аватар 2', 2022, 'США', 'Wow', ['фантастика', 'боевик', 'фэнтези'], 137, 3000, 10);
+
+    const cart = new Cart;
+    cart.add(newCinema);
+    cart.add(newCinema2);
+    expect(cart.getTotalPrice()).toBe(4500)
+  })
+
+  test(('Delete object'), () => {
     const newCinema = new Movie(15, 'Аватар', 2009, 'США', 'Wow', ['фантастика', 'боевик', 'фэнтези', 'приключения'], 137, 1500, 15);
     const cart = new Cart;
     cart.add(cinema);
     cart.add(newCinema);
-    expect(cart.getTotalPrice()).toBe(2500)
+    expect(cart.deleteProduct(10)).toEqual(cinema)
   })
 })
 

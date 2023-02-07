@@ -1,3 +1,4 @@
+import Movie from "./Movie";
 import MovieData from "./MovieData";
 
 export default class Cart {
@@ -11,20 +12,20 @@ export default class Cart {
     }
     getTotalPriceWithoutDiscount(): number {
         return this.items.reduce((currentSum, item) => {
-            console.log(currentSum, item.price);
             return currentSum += item.price;
         }, 0)
     }
     getTotalPrice(): number {
         return this.items.reduce((currentSum, item) => {
-            console.log(currentSum, item.price, item.discount);
-            return currentSum += item.price * item.discount / 100;
+            item.discount ? item.discount : item.discount = 1;
+            return currentSum += item.price - item.price * item.discount / 100;
         }, 0)
     }
-    deleteProduct(id: MovieData): void {
-        this.items.filter(item => {
-            if (item.id === id) {
-                delete item;
+    deleteProduct(num: number): void {
+        return this.items.forEach((item: Movie, index: number) => {
+            if (item.id === num) {
+                console.log(item);
+                return this.items.splice(index, 1);
             }
         })
     }

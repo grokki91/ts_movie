@@ -7,5 +7,5 @@ export default interface MovieData {
   readonly genre: string[];
   readonly time: number;
   readonly price: number;
-  readonly discount?: number;
+  discount?: number;
 }
