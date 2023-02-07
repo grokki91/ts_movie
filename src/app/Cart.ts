@@ -21,7 +21,7 @@ export default class Cart {
             return currentSum += item.price - item.price * item.discount / 100;
         }, 0)
     }
-    deleteProduct(num: number): void {
+    deleteProduct(num: number): any {
         return this.items.forEach((item: Movie, index: number) => {
             if (item.id === num) {
                 console.log(item);
