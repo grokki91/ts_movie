@@ -11,21 +11,15 @@ export default class Cart {
         return [...this._items];
     }
     getTotalPriceWithoutDiscount(): number {
-        return this.items.reduce((currentSum, item) => {
-            return currentSum += item.price;
-        }, 0)
+        return this.items.reduce((currentSum, item) => currentSum += item.price, 0);
     }
     getTotalPrice(): number {
-        return this.items.reduce((currentSum, item) => {
-            item.discount ? item.discount : item.discount = 1;
-            return currentSum += item.price - item.price * item.discount / 100;
-        }, 0)
+        return this.items.reduce((currentSum, item) => currentSum += item.price - item.price * item.discount / 100, 0);
     }
-    deleteProduct(num: number): any {
-        return this.items.forEach((item: Movie, index: number) => {
-            if (item.id === num) {
-                console.log(item);
-                return this.items.splice(index, 1);
+    deleteProduct(num: number): MovieData[] {
+        return this.items.filter((item) => {
+            if (item.id !== num) {
+                return this.items;
             }
         })
     }
