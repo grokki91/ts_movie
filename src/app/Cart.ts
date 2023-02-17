@@ -11,16 +11,17 @@ export default class Cart {
         return [...this._items];
     }
     getTotalPriceWithoutDiscount(): number {
-        return this.items.reduce((currentSum, item) => currentSum += item.price, 0);
+        return this._items.reduce((currentSum, item) => currentSum += item.price, 0);
     }
     getTotalPrice(): number {
-        return this.items.reduce((currentSum, item) => currentSum += item.price - item.price * item.discount / 100, 0);
+        return this._items.reduce((currentSum, item) => currentSum += item.price - item.price * item.discount / 100, 0);
     }
     deleteProduct(num: number): MovieData[] {
-        return this.items.filter((item) => {
+        const itemsFilter = this._items.filter((item) => {
             if (item.id !== num) {
-                return this.items;
+                return item;
             }
         })
+        return this._items = itemsFilter;
     }
 }
