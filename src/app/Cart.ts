@@ -17,11 +17,7 @@ export default class Cart {
         return this._items.reduce((currentSum, item) => currentSum += item.price - item.price * item.discount / 100, 0);
     }
     deleteProduct(num: number): MovieData[] {
-        const itemsFilter = this._items.filter((item) => {
-            if (item.id !== num) {
-                return item;
-            }
-        })
-        return this._items = itemsFilter;
+        this._items = this._items.filter(item => item.id !== num);
+        return this._items;
     }
 }
